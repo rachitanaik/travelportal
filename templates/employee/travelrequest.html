@@ -1,0 +1,8 @@
+<h1><center>TRAVEL REQUEST FORM</center></h1>
+<center>
+<form role="form" action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+</form>
+</center>
