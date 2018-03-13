@@ -10,6 +10,15 @@ class TravelForm(forms.Form):
 	to_date = forms.DateField(required=True)
 	advance_amount = forms.IntegerField(required=False)
 
+class ExpenseForm(forms.Form):
+	
+	expense_title = forms.CharField(required=True)
+	category = forms.CharField(required=True)
+	date = forms.DateField(required=True)
+	amount = forms.IntegerField(required=True)
+	receipt = forms.FileField(required = False)
+
+
 class Employee(models.Model):
 	name=models.CharField(max_length = 50)
 	designation=models.CharField(max_length = 50)
@@ -18,6 +27,15 @@ class Employee(models.Model):
 
 	def __str__(self):
 		return self.name
+
+
+class ExpenseDetails(models.Model):
+	employee = models.ForeignKey(Employee, on_delete=models.CASCADE,null=True)
+	expense_title = models.CharField(max_length = 50)
+	category = models.CharField(max_length = 50)
+	date = models.DateField(null=True)
+	amount = models.IntegerField(null=True)
+	receipt = models.FileField(upload_to='media')
 	
 
 
