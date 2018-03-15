@@ -36,6 +36,7 @@ class ExpenseDetails(models.Model):
 	date = models.DateField(null=True)
 	amount = models.IntegerField(null=True)
 	receipt = models.FileField(upload_to='media')
+	approval = models.CharField(max_length=20,null=True,default='None')
 	
 
 
@@ -48,6 +49,7 @@ class TravelDetails(models.Model):
 	from_date = models.DateField(null=True)
 	to_date = models.DateField(null=True)
 	advance_amount = models.IntegerField(blank=True, null=True)
+	approval = models.CharField(max_length=20,null=True,default='None')
 	
 
 

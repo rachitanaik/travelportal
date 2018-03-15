@@ -33,6 +33,7 @@ INSTALLED_APPS = [
 
     'django.contrib.admin',
     'employee.apps.EmployeeConfig',
+    'manager.apps.ManagerConfig',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',

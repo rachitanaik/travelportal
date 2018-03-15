@@ -6,7 +6,16 @@
 	<br>Date : {{e_det.date }}
 	<br>Amount  : {{e_det.amount}}
 	<br>Receipt : <a href ="media/{{e_det.receipt}}">{{e_det.receipt}}</a>
-	<br>Approval : {{e_det.approval}}
+	{% if e_det.approval == None %}
+<form role="form" action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+</form>
+    
+    {% else %}
+    <br>Approval : {{e_det.approval}}
+    {% endif %}
 	{% endfor %}
+    
 </ul>
-		

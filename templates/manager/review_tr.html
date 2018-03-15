@@ -8,12 +8,17 @@
 	<br>From Date : {{tr_det.from_date}}
 	<br>To Date : {{tr_det.to_date}}
 	<br>Advance Amount : {{tr_det.advance_amount}}
-	<br>Aproval : {{tr_det.approval}}
+	{% if tr_det.approval == None %}
+<form role="form" action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+</form>
+    
+    {% else %}
+    <br>Approval : {{tr_det.approval}}
+    {% endif %}
 	{% endfor %}
+    
 </ul>
-		
-
-
-
-
 		
